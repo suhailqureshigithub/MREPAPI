@@ -27,8 +27,11 @@ def show(id:int):
 
 #Post Method
 class Blog(BaseModel):
-
+    title:str
+    body:str
+    published:Optional[bool]
 
 @app.post('/blog')
-def create_blog():
-    return{'Blog Post':'Blog created'}
+def create_blog(blogRequest:Blog):
+    # return blogRequest
+    return{'Blog created':f'Blog created with title:{blogRequest.title}'}
