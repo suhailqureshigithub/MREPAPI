@@ -2,11 +2,15 @@ from fastapi import FastAPI
 
 app=FastAPI()
 
-@app.get("/")
-def wellcome():
-    return{'data': {'suhail','jahangir','sikander'}}
+@app.get('/')
+def index():
+    return{'data': 'Blog List'}
+
+@app.get('/blog/{id}')
+def show(id):
+    return{'blog id':id}
 
 
-@app.get("/about")
-def wellcome():
-    return{'about Page': {'this is about page '}}
+@app.get('/blog/{id}/comments')
+def show(id):
+    return{'blog id with comments':{'1','2'}}
